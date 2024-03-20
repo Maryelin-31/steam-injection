@@ -80,7 +80,7 @@ def seepage_script(rate_inj):
     cell = model.get_nearest_cell(pos=pos)
     x, y, z = cell.pos
     virtual_cell = config.add_cell(model, vol=cell.get_attr(config.cell_keys['vol']), pos=pos, porosity=1.0e3, pore_modulus=20e6,
-                                   temperature=ini['temperature'](*pos), p=10.0e6,
+                                   temperature=ini['temperature'](*pos), p=1.0e6,
                                    s=ini['s'](*pos))
     
     face = config.add_face(model, virtual_cell, model.get_cell(cell.index),
