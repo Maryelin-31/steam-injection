@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 from zml import Interp1, create_dict, ConjugateGradientSolver, Seepage, version
 from zmlx.fluid import *
 from zmlx.fluid.conf import *
@@ -54,12 +53,11 @@ def create():
     
     # The decomposition of Kerogen.
     config.reactions.append(
-        decomposition.create(left=(config.isol, 0), right=[(config.iHO, 0.6), 
-                                                               (config.iLO, 0.1),
-                                                               (config.iLO, 0.05),
-                                                               ((config.iGAS, 0), 0.05),
-                                                               ((config.isol, 1), 0.2),
-                                                               ],
+        decomposition.create(left=(config.isol, 0), right=[(config.iHO, 0.663), 
+                                                            (config.iLO, 0.076),
+                                                            ((config.iGAS, 0), 0.046),
+                                                            ((config.isol, 1), 0.215),
+                                                            ],
                              temp=563.15, heat=161100.0, 
                              rate=4.81e-6,
                              fa_t=config.flu_keys['temperature'],
@@ -67,38 +65,21 @@ def create():
 
     # The decomposition of Heavy oil
     config.reactions.append(
-        decomposition.create(left=config.iHO, right=[(config.iLO, 0.5),   
-                                                         ((config.iGAS, 0), 0.2),
-                                                         ((config.isol, 1), 0.3),
+        decomposition.create(left=config.iHO, right=[(config.iLO, 0.438),   
+                                                         ((config.iGAS, 0), 0.217),
+                                                         ((config.isol, 1), 0.345),
                                                          ],
                              temp=623.15, heat=219328.0, 
                              rate=2.71e-7,
                              fa_t=config.flu_keys['temperature'],
                              fa_c=config.flu_keys['specific_heat']))
     
-    # The decomposition of Light Oil
-    # config.reactions.append(
-    #     decomposition.create(index=config.iLO, iweights=[((config.iGAS, 0), 0.703),
-    #                                                       ((config.isol, 1), 0.297),
-    #                                                       ],
-    #                           temp=873.15, heat=219328.0, 
-    #                           rate=1.0e-8,
-    #                           fa_t=config.flu_keys['temperature'],
-    #                           fa_c=config.flu_keys['specific_heat']))
-    
-    # # The decomposition of Gas
-    # config.reactions.append(
-    #     decomposition.create(index=(config.iGAS, 0), iweights=[((config.iGAS, 1), 0.687),
-    #                                                             ((config.isol, 1), 0.313),
-    #                                                           ],
-    #                           temp=633.15, heat=238488.0, 
-    #                           rate=2.53e-8,
-    #                           fa_t=config.flu_keys['temperature'],
-    #                           fa_c=config.flu_keys['specific_heat']))
 
     return config
 
 
 if __name__ == '__main__':
     c = create()
+
+
 

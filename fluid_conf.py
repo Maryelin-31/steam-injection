@@ -6,9 +6,9 @@ from zml import Interp2, TherFlowConfig, data_version
 
 'gas mixture'
 "gas mixture density, viscosity the same C2h6(ethane)"
-
-from zmlx.fluid.conf.gas_density.gas_mixture_density import GAS_den
+# from gas_density.gas_mixture import GAS_den
 from zmlx.fluid.conf.gas_viscosity.c2h6 import gas_vis_c2h6
+from Utility.gas_density.gas_mixture import GAS_den
 
 
 import os

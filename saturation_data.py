@@ -7,6 +7,8 @@ Created on Sat Apr 22 15:05:37 2023
 from zml import *
 from Utility.Chang7 import *
 from Utility.Chang7.get_path import *
+# from Chang7 import *
+# from Chang7.get_path import *
 
 data = np.loadtxt(get_path('data.txt'))
 # Translate the original data to near 0, and at the same time, 
@@ -28,6 +30,7 @@ y = [ i * (-1) if i < 0 else i for i in y]
 
 y2porosity = Interp1(x=y, y=data[:, 1])
 y2sg = Interp1(x=y, y=data[:, 2])
+
 y2sw = Interp1(x=y, y=data[:, 3])
 y2slo = Interp1(x=y, y=data[:, 4])
 y2sho = Interp1(x=y, y=data[:, 5])
